@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import TodoItem from './TodoItem';
+import PropTypes from 'prop-types';
 
-class App extends Component {
+class Todos extends Component {
     render() {
-        return (
-            <div> className="App">
-                <h1>App</h1>
-            </div>
-
-        );
+        return this.props.todos.map((todo) => (
+            <TodoItem todo={todo} />
+        ));
     }
 }
 
-export default App;
+Todos.propTypes = {
+    todos: PropTypes.arrayOf.isRequired
+}
+
+export default Todos;
